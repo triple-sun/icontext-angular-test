@@ -1,16 +1,17 @@
 
 <main class="main">
-<mat-toolbar>
+<app-login *ngIf="!isLoggedIn"></app-login>
+<mat-toolbar *ngIf="isLoggedIn">
   <div *ngFor="let page of pages;let i= index" class="navbar-header">
     <button mat-button routerLink="{{pages[i].toLowerCase()}}" routerLinkActive="active" ariaCurrentWhenActive="page" >{{page}}</button>
   </div>
 
   <span class="spacer"></span>
-  <button mat-button routerLink="profile"> <mat-icon fontIcon="person"></mat-icon> {{ user.firstName }} {{ user.lastName }}</button>
-  <button mat-flat-button color="warn" routerLink=".">Logout</button>
+  <button *ngIf="isLoggedIn" mat-button routerLink="profile"> <mat-icon fontIcon="person">User</mat-icon> {{ user!.firstName }} {{ user!.lastName }}</button>
+  <button *ngIf="isLoggedIn" mat-flat-button color="warn" routerLink=".">Logout</button>
 </mat-toolbar>
+  <div class="content">
 <router-outlet></router-outlet>
 
-  <div class="content">
   </div>
 </main>

@@ -1,14 +1,22 @@
-export type TTelFormData = {
+import { Role } from "./const";
+
+export type TUser = {
+  id: number;
+  email: string
+  firstName: string;
+  lastName:string;
+  tel: number;
+  website: string;
+  password: string;
+  role: null;
+}
+
+export type TTel = {
   area: string;
   exchange: string;
   subscriber: string;
 }
 
-export type TProfileFormData = {
-  firstName: string;
-  lastName:string;
-  tel: TTelFormData
-  website: string;
-}
+export type TProfileForm = Pick<TUser, 'firstName' | 'lastName' | 'website' | 'email'> & { tel: TTel}
 
-export type TFormattedProfileFormData = Pick<TProfileFormData, 'firstName' | 'lastName' | 'website'> & { tel: string }
+export type TProfileFormData = Omit<TUser,'password' | 'id' | 'role'>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { USER_KEY } from '../../utils/const';
-import { TUser } from '../../utils/types';
+import { USER_KEY } from '../utils/const';
+import { TUser } from '../utils/types';
 
 @Injectable({
   providedIn: 'root'

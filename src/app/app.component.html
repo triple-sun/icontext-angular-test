@@ -1,6 +1,5 @@
 
 <main class="main">
-<app-login *ngIf="!isLoggedIn"></app-login>
 <mat-toolbar *ngIf="isLoggedIn">
   <div *ngFor="let page of pages;let i= index" class="navbar-header">
     <button mat-button routerLink="{{pages[i].toLowerCase()}}" routerLinkActive="active" ariaCurrentWhenActive="page" >{{page}}</button>
@@ -11,7 +10,6 @@
   <button *ngIf="isLoggedIn" mat-flat-button color="warn" routerLink=".">Logout</button>
 </mat-toolbar>
   <div class="content">
-<router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
   </div>
 </main>

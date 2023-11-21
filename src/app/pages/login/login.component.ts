@@ -1,7 +1,7 @@
-import { TUser } from './../../utils/types';
+import { TUser } from '../../utils/types';
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../services/storage/storage.service';
-import { AuthService } from '../../services/auth/auth.service';
+import { StorageService } from '../../services/storage.service';
+import { AuthService } from '../../services/auth.service';
 import { EMAIL_REGEX, MAX_PASS_LENGTH, MIN_PASS_LENGTH, Role } from '../../utils/const';
 import { MatInputModule } from '@angular/material/input';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  role: Role | null = null
+  role?: Role
 
   constructor(
     private authService: AuthService,
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-   get email() {
+  get email() {
     return this.loginForm.get('email')!;
   }
 

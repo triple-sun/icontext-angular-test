@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-content>
+    <form *ngIf="!isSuccessful" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+      <mat-icon fontIcon="person"></mat-icon>
+
+      <mat-form-field class="form-field-active" hintLabel="From {{ length.nameMin }} to {{ length.nameMax }} characters">
+        <mat-label for="first-name">First name</mat-label>
+        <input matInput #firstNameInput required maxlength="255" id="first-name" name="first-name" formControlName="firstName">
+
+        <mat-hint align="end">{{firstNameInput.value.length}}/{{length.nameMax}}</mat-hint>
+
+        <mat-error *ngIf="firstName.errors?.['required']">Please enter your first name</mat-error>
+        <mat-error *ngIf="firstName.errors?.['minlength']">First name must be longer than {{ length.nameMin }} symbols</mat-error>
+        <mat-error *ngIf="firstName.errors?.['maxlength']">First name must not be longer than {{ length.nameMax }} symbols</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field-active" class="form-field-active" hintLabel="From {{ length.nameMin }} to {{ length.nameMax }} characters">
+        <mat-label for="last-name">Last name</mat-label>
+        <input matInput #lastNameInput required maxlength="255" id="last-name" name="last-name" formControlName="lastName">
+
+        <mat-hint align="end">{{lastNameInput.value.length}}/{{length.nameMax}}</mat-hint>
+
+        <mat-error *ngIf="lastName.errors?.['required']">Please enter your last name</mat-error>
+        <mat-error *ngIf="lastName.errors?.['minlength']">Last name must be longer than {{ length.nameMin }} symbols</mat-error>
+        <mat-error *ngIf="lastName.errors?.['maxlength']">Last name must not be longer than {{ length.nameMax }} symbols</mat-error>
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Your email">
+        <label for="email">Email</label>
+        <input matInput required type="text" name="email" id="'email" formControlName="email" />
+        <mat-error *ngIf="email.errors">Please enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field hintLabel="From {{ length.passMin }} to {{ length.passMax }}">
+        <label for="password">Password</label>
+        <input matInput #passInput required type="password" name="password" formControlName="password" />
+
+        <mat-hint align="end">{{passInput.value.length}}/{{length.passMax}}</mat-hint>
+
+        <mat-error *ngIf="password.errors?.['required']">Please enter your password</mat-error>
+        <mat-error *ngIf="password.errors?.['minlength']">Password must be at least {{ length.passMin }} characters long</mat-error>
+        <mat-error *ngIf="password.errors?.['minlength']">Password must be no more than {{ length.passMax }} characters long</mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary">Register</button> <br> Already have an account? <a href="#" routerLink="login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+
+
+      <mat-error *ngIf="isSignUpFailed" role="alert"> Sign up failed: {{ errorMessage }}</mat-error>
+
+
+    <div class="alert alert-success" *ngIf="isSuccessful">Your registration is successful!</div>
+    </form>
+  </mat-card-content>
+</mat-card>

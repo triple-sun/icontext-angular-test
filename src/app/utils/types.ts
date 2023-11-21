@@ -6,9 +6,9 @@ export type TUser = {
   firstName: string;
   lastName:string;
   tel: number;
-  website: string;
+  website?: string;
   password: string;
-  role: null;
+  role?: Role;
 }
 
 export type TTel = {

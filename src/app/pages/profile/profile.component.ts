@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { formatProfileForm, formatTelNumber } from '../../utils/utils';
 import { TelInput } from '../../components/tel-input/tel-input';
-import { StorageService } from '../../services/storage/storage.service';
+import { StorageService } from '../../services/storage.service';
 import { TUser } from '../../utils/types';
 
 @Component({

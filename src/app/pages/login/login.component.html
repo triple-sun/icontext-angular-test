@@ -2,7 +2,7 @@
   <mat-card-content>
     <form *ngIf="!isLoggedIn" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
       <mat-icon fontIcon="person"></mat-icon>
-      <mat-form-field>
+      <mat-form-field hintLabel="Your email">
         <label for="email">Email</label>
         <input matInput required type="text" name="email" id="'email" formControlName="email"/>
         <mat-error *ngIf="email.errors">Please enter a valid email</mat-error>
@@ -16,7 +16,7 @@
         <mat-error *ngIf="password.errors?.['minlength']">Password must be at least {{ length.passMin }} characters long</mat-error>
       </mat-form-field>
 
-        <button mat-flat-button color="primary">Login</button>
+        <button mat-flat-button color="primary">Login</button><br> Don't have an account? <a href="/register" routerLink="register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
 
         <mat-error *ngIf="isLoginFailed" class="alert alert-danger" role="alert"> Login failed: {{ errorMessage }}</mat-error>
     </form>

@@ -21,7 +21,7 @@ for (let i = 1; i <= USER_COUNT; i++) {
 
 const json = JSON.stringify(database);
 
-fs.writeFile("./api/db.json", json, "utf8", (err) => {
+fs.writeFile("./server/data/users/users.json", json, "utf8", (err) => {
   if (err) {
     console.error(err);
     return;

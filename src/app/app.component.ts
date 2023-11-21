@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Component } from '@angular/core';
-import { Pages, Role } from './utils/const';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,11 +12,12 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { StorageService } from './services/storage/storage.service';
-import { AuthService } from './services/auth/auth.service';
+import { StorageService } from './services/storage.service';
+import { AuthService } from './services/auth.service';
 import { TUser } from './utils/types';
 import { httpInterceptorProviders } from './helpers/http-interceptor';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
+import { Pages, Role } from './utils/const';
 
 @Component({
   selector: 'app-root',
@@ -52,7 +52,7 @@ export class AppComponent {
   pages = Pages
 
   user?: TUser
-  isLoggedIn = false;
+  isLoggedIn = true;
   showAdminBoard = false;
   showCustomerBoard = false;
 

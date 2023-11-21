@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "fill-mock-db": "node ./api/fill-mock-db.js",
-    "server": "json-server --watch ./api/db.json"
+    "fill-users-db": "node ./server/fill-users-db.js",
+    "mock:server": "nodemon server/server.js --ext js,ts,json,html"
   },
   "private": true,
   "dependencies": {
@@ -23,9 +23,9 @@
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
     "angular-in-memory-web-api": "^0.17.0",
+    "cors": "^2.8.5",
     "faker": "^5.5.3",
     "fs": "^0.0.1-security",
-    "json-server": "^0.17.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
@@ -38,11 +38,14 @@
     "@types/jasmine": "~5.1.0",
     "dotenv": "^16.3.1",
     "jasmine-core": "~5.1.0",
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "nodemon": "^3.0.1",
     "typescript": "~5.2.2"
   }
 }
